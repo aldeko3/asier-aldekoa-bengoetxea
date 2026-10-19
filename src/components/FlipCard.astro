@@ -84,6 +84,12 @@ const { number, title, text } = Astro.props;
     border-radius: 9999px;
     font-size: 1.125rem;
     z-index: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .flip-inner.is-flipped .card-number {
+    visibility: hidden;
   }
 
   .flip-front::after {
