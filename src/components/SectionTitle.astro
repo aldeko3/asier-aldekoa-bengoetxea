@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  color: string;
+  number: string;
+  numberBackground?: string;
+}
+
+const { title, color, number, numberBackground } = Astro.props;
+
+const numberClasses = [
+  "mb-[-15px]",
+  "relative",
+  "z-10",
+  "inline-flex",
+  "h-16",
+  "w-16",
+  "items-center",
+  "justify-center",
+  "rounded-full",
+  "border-[5px]",
+  "border-current",
+  "font-secondary-heavy",
+  "text-2xl",
+  "md:text-3xl",
+  color,
+  numberBackground,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<h2 class={`text-center font-primary text-4xl uppercase md:text-5xl ${color}`}>
+  {number && <span class={numberClasses}>{number}</span>}
+  <span class="block">{title}</span>
+</h2>

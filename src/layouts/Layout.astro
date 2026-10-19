@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Asier Aldekoa Bengoetxea</title>
+    <meta name="description" content="Asier Aldekoa Bengoetxea's portfolio" />
+    <meta
+      name="keywords"
+      content="Asier Aldekoa Bengoetxea, Asier Aldekoa, Aldekoa Bengoetxea, Asier, Aldekoa, Bengoetxea, portfolio, web developer, frontend developer, software engineer"
+    />
+    <meta name="author" content="Asier Aldekoa Bengoetxea" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta property="bingbot" content="index, follow" />
+    <meta property="yandexbot" content="index, follow" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import "tailwindcss";
+
+  @font-face {
+    font-family: "CoasterSans";
+    src: url("/fonts/CoasterSans/CoasterSans-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "PilcrowRoundedBold";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PilcrowRoundedHeavy";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Heavy.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PilcrowRoundedMedium";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Medium.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PilcrowRoundedRegular";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Regular.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PilcrowRoundedSemibold";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Semibold.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "PilcrowRoundedVariable";
+    src: url("/fonts/PilcrowRounded/PilcrowRounded-Variable.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @theme {
+    --color-primary: #4c2622; /* Espresso */
+    --color-secondary: #efe9cf; /* Vanilla Cream */
+    --color-tertiary: #3f7d20; /* Green */
+    --font-primary: "CoasterSans", sans-serif;
+    --font-secondary-bold: "PilcrowRoundedBold", sans-serif;
+    --font-secondary-heavy: "PilcrowRoundedHeavy", sans-serif;
+    --font-secondary-medium: "PilcrowRoundedMedium", sans-serif;
+    --font-secondary-regular: "PilcrowRoundedRegular", sans-serif;
+    --font-secondary-semibold: "PilcrowRoundedSemibold", sans-serif;
+    --font-secondary-variable: "PilcrowRoundedVariable", sans-serif;
+    --animate-marquee: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-12.5%);
+    }
+  }
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import experience from "../data/experience.json";
+import CurvedSeparator from "../components/CurvedSeparator.astro";
+import FlipCard from "../components/FlipCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+---
+
+<CurvedSeparator backgroundColor="bg-primary" pathColor="text-secondary" />
+
+<section
+  id="experience"
+  class="w-full bg-secondary px-6 py-24 text-primary"
+>
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle title="Experiencia Profesional" color="text-primary" number="04" numberBackground="bg-secondary" />
+
+    <div class="relative mt-16">
+      <div
+        aria-hidden="true"
+        class="absolute bottom-2 left-4 top-2 hidden w-[3px] bg-primary sm:block"
+      >
+      </div>
+
+      <ol class="space-y-12">
+        {
+          experience.map((job) => (
+            <li class="relative text-center sm:pl-12 sm:text-left">
+              <span
+                aria-hidden="true"
+                class="absolute left-[calc(1rem+1px)] top-1.5 hidden h-6 w-6 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-primary)_25%,transparent)] sm:block"
+              />
+
+              <p class="mt-1 font-secondary-heavy text-3xl uppercase">
+                {job.company}
+              </p>
+
+              <p class="font-secondary-heavy text-md uppercase text-primary">
+                {job.period} · {job.location}
+              </p>
+
+              <h3 class="mt-1 font-secondary-heavy text-xl uppercase">
+                {job.role}
+              </h3>
+
+              <div>
+                <ul
+                  class="experience-carousel -mx-6 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[3.75rem] py-6 scrollbar-none sm:grid sm:grid-cols-4 sm:snap-none sm:overflow-visible sm:px-0 sm:mx-0"
+                  data-carousel
+                >
+                  {job.bullets.map((b) => (
+                    <FlipCard number={b.number} title={b.title} text={b.text} />
+                  ))}
+                </ul>
+
+                <div class="mt-8 flex items-center justify-center gap-10 sm:hidden">
+                  <button
+                    type="button"
+                    class="transition-transform duration-200 active:scale-90 motion-reduce:transition-none"
+                    data-carousel-prev
+                    aria-label="Tarjeta anterior"
+                  >
+                    <img
+                      src="/icons/MynauiChevronLeftCircle.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                  <button
+                    type="button"
+                    class="transition-transform duration-200 active:scale-90 motion-reduce:transition-none"
+                    data-carousel-next
+                    aria-label="Tarjeta siguiente"
+                  >
+                    <img
+                      src="/icons/MynauiChevronRightCircle.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../styles/global.css";
+
+  .experience-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .experience-carousel :global(.flip-card) {
+    @apply mx-0 max-w-none snap-center flex-[0_0_calc(100vw_-_7.5rem)];
+  }
+
+  @media (min-width: 640px) {
+    .experience-carousel :global(.flip-card) {
+      @apply flex-none snap-align-none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const parent = carousel.parentElement;
+    if (!parent) return;
+
+    const prevBtn = parent.querySelector('[data-carousel-prev]');
+    const nextBtn = parent.querySelector('[data-carousel-next]');
+
+    const scrollByOne = (direction: number) => {
+      const slides = carousel.querySelectorAll<HTMLElement>('.flip-card');
+      if (slides.length < 2) return;
+
+      const distance = slides[1].offsetLeft - slides[0].offsetLeft;
+      carousel.scrollBy({ left: direction * distance, behavior: 'smooth' });
+    };
+
+    prevBtn?.addEventListener('click', () => scrollByOne(-1));
+    nextBtn?.addEventListener('click', () => scrollByOne(1));
+  });
+</script>

@@ -1,0 +1,74 @@
+---
+import CurvedSeparator from "../components/CurvedSeparator.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import education from "../data/education.json";
+import certifications from "../data/certifications.json";
+import languages from "../data/languages.json";
+---
+
+<CurvedSeparator backgroundColor="bg-secondary" pathColor="text-primary" />
+
+<section
+  id="qualifications"
+  class="w-full bg-primary px-6 py-24 text-secondary"
+>
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle title="Formación y Cualificaciones" color="text-secondary" number="05" numberBackground="bg-primary" />
+
+    <div class="mt-16 grid gap-16 md:grid-cols-3 md:gap-10">
+      <div class="flex flex-col gap-8">
+        <h3 class="font-secondary-heavy text-2xl uppercase">Educación</h3>
+
+        {education.map((item) => (
+          <div class="border-l-[3px] border-secondary/40 pl-5">
+            <p class="font-secondary-heavy text-xl uppercase leading-snug">
+              {item.degree}
+            </p>
+            <p class="mt-2 font-secondary-regular uppercase text-secondary/70">
+              {item.institution}{item.period ? ` · ${item.period}` : ""}
+            </p>
+            {item.status && (
+              <span
+                class="mt-4 inline-block rounded-xl bg-tertiary px-4 py-1 font-secondary-heavy text-sm uppercase text-secondary"
+              >
+                {item.status}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-col gap-8">
+        <h3 class="font-secondary-heavy text-2xl uppercase">Certificaciones</h3>
+
+        {certifications.map((item) => (
+          <div class="border-l-[3px] border-secondary/40 pl-5">
+            <p class="font-secondary-heavy text-xl uppercase leading-snug">
+              {item.name}
+            </p>
+            <p class="mt-2 font-secondary-regular uppercase text-secondary/70">
+              {item.issuer}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-col gap-8">
+        <h3 class="font-secondary-heavy text-2xl uppercase">Idiomas</h3>
+
+        <ul class="flex flex-col">
+          {languages.map((item) => (
+            <li class="flex items-baseline justify-between gap-4 border-b-[3px] border-secondary/40 py-4 first:pt-0 last:border-b-0">
+              <span class="font-secondary-heavy text-xl uppercase">
+                {item.language}
+              </span>
+              <span class="font-secondary-regular text-sm uppercase text-secondary/70">
+                {item.level}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

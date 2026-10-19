@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Portales corporativos a medida",
+    "type": "Componentes SPFx",
+    "description": "Diseño y desarrollo de portales e interfaces corporativas con web parts y extensiones personalizadas sobre SharePoint Framework (SPFx), React y TypeScript.",
+    "tags": ["SPFx", "React", "TypeScript"]
+  },
+  {
+    "name": "Dashboard de indicadores",
+    "type": "Componentes SPFx",
+    "description": "Web part de visualización de indicadores clave del negocio mediante la integración de Microsoft Graph API y fuentes de datos corporativas.",
+    "tags": ["SPFx", "Microsoft Graph", "UX"]
+  },
+  {
+    "name": "Intranet corporativa completa",
+    "type": "Entornos SharePoint Online",
+    "description": "Construcción integral de entornos de SharePoint Online: arquitectura de la información, sitios, páginas, listas avanzadas, bibliotecas y experiencia de usuario.",
+    "tags": ["SharePoint Online", "Arquitectura de información", "UX"]
+  },
+  {
+    "name": "Migración y gobierno del entorno",
+    "type": "Entornos SharePoint Online",
+    "description": "Aprovisionamiento, migraciones de datos y gestión de gobernanza con PowerShell (PnP PowerShell) y SharePoint Online Management Shell.",
+    "tags": ["PnP PowerShell", "Migración", "Gobernanza"]
+  },
+  {
+    "name": "Solución de aprobaciones",
+    "type": "Componentes SPFx",
+    "description": "Extensiones de aplicación y web parts para gestionar flujos de aprobación de documentos y solicitudes en la intranet corporativa.",
+    "tags": ["SPFx", "Aplicación custom", "Flujos de trabajo"]
+  },
+  {
+    "name": "Buscador corporativo",
+    "type": "Componentes SPFx",
+    "description": "Web part de búsqueda avanzada con filtros dinámicos sobre SharePoint Search y respaldada por una UX pulida y accesible.",
+    "tags": ["SPFx", "SharePoint Search", "Accesibilidad"]
+  },
+  {
+    "name": "Plantillas de sitios",
+    "type": "Entornos SharePoint Online",
+    "description": "Diseño de plantillas de sitios reutilizables con navegación, permisos y elementos predeterminados para acelerar la creación de espacios.",
+    "tags": ["SharePoint Online", "Plantillas", "Permisos"]
+  },
+  {
+    "name": "Automatización con Power Automate",
+    "type": "Entornos SharePoint Online",
+    "description": "Integración de flujos de Power Automate con listas y bibliotecas para automatizar notificaciones, tareas y sincronización de datos.",
+    "tags": ["Power Automate", "SharePoint Online", "Automatización"]
+  },
+  {
+    "name": "Fábrica de web parts",
+    "type": "Componentes SPFx",
+    "description": "Creación de una librería interna de web parts reutilizables con patrones de diseño consistentes para el resto de equipos de desarrollo.",
+    "tags": ["SPFx", "Design System", "Librería de componentes"]
+  },
+  {
+    "name": "Integración con Teams",
+    "type": "Componentes SPFx",
+    "description": "Adaptación de web parts y pestañas personalizadas para Microsoft Teams dentro del ecosistema SharePoint Online.",
+    "tags": ["SPFx", "Microsoft Teams", "Tab"]
+  },
+  {
+    "name": "Intranet departamental",
+    "type": "Entornos SharePoint Online",
+    "description": "Despliegue de intranets por departamento con comunicación dirigida, gestión documental y visibilidad de indicadores propios.",
+    "tags": ["SharePoint Online", "Comunicación", "Gestión documental"]
+  },
+  {
+    "name": "Experiencia de onboarding",
+    "type": "Entornos SharePoint Online",
+    "description": "Construcción de una experiencia de incorporación digital: páginas guiadas, checklist y recursos centralizados para nuevos empleados.",
+    "tags": ["SharePoint Online", "Onboarding", "UX"]
+  },
+  {
+    "name": "Monitor de permisos",
+    "type": "Componentes SPFx",
+    "description": "Web part de auditoría y monitorización de permisos en sitios para detectar accesos anómalos y mantener la gobernanza del entorno.",
+    "tags": ["SPFx", "PowerShell", "Gobernanza"]
+  }
+]

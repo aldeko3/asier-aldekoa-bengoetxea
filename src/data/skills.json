@@ -1,0 +1,43 @@
+[
+  {
+    "category": "Desarrollo Front-End Web",
+"skills": [
+      { "name": "React", "icon": "/icons/MdiReact.svg" },
+      { "name": "TypeScript", "icon": "/icons/BxlTypescript.svg" },
+      { "name": "Astro", "icon": "/icons/DeviconPlainAstro.svg" },
+      { "name": "Tailwind CSS", "icon": "/icons/MdiTailwind.svg" },
+      { "name": "JavaScript", "icon": "/icons/LineiconsJavascript.svg" },
+      { "name": "HTML5", "icon": "/icons/LineiconsHtml5.svg" },
+      { "name": "CSS", "icon": "/icons/Fa6BrandsCss.svg" }
+    ]
+  },
+  {
+    "category": "Microsoft 365 & Soluciones Empresariales",
+    "skills": [
+      {
+        "name": "SharePoint Framework (SPFx)",
+        "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg"
+      },
+      {
+        "name": "Power Platform (Power Apps, Power Automate)",
+        "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg"
+      },
+      { "name": "Dataverse", "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg" }
+    ]
+  },
+  {
+    "category": "Integración y Automatización",
+    "skills": [
+      { "name": "Microsoft Graph API", "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg" },
+      { "name": "REST APIs", "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg" },
+      { "name": "PowerShell (PnP PowerShell)", "icon": "/icons/FileIconsPowershell.svg" }
+    ]
+  },
+  {
+    "category": "Arquitectura y Gobernanza",
+    "skills": [
+      { "name": "Arquitectura de Información", "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg" },
+      { "name": "Gobernanza M365 & Gestión de Permisos", "icon": "/icons/StreamlineLogosMicrosoftSharepointLogoSolid.svg" }
+    ]
+  }
+]

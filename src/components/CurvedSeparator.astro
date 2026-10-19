@@ -1,0 +1,21 @@
+---
+interface Props {
+  backgroundColor: string;
+  pathColor: string;
+}
+
+const { backgroundColor, pathColor } = Astro.props;
+---
+
+<div class={`w-full h-[50px] sm:h-[70px] md:h-[90px] lg:h-[110px] overflow-hidden leading-none ${backgroundColor}`}>
+  <svg
+    class={`w-full h-full ${pathColor} block`}
+    viewBox="0 0 1000 100"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M -150,100 Q 500,-100 1150,100 L 1200,100 L -200,100 Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</div>

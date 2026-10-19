@@ -1,0 +1,41 @@
+---
+const links = [
+  { href: '#', label: 'Inicio' },
+  { href: '#about', label: 'Sobre mí' },
+  { href: '#skills', label: 'Habilidades' },
+  { href: '#projects', label: 'Proyectos' },
+];
+
+const copies = 8;
+---
+
+<header class="fixed left-0 top-0 z-10 w-full overflow-hidden text-secondary font-primary py-2 tracking-widest text-xl uppercase">
+  <nav aria-label="Menú principal" class="w-full overflow-hidden">
+    <div class="flex w-max animate-marquee">
+      {Array.from({ length: copies }, (_, i) => (
+        <div
+          class="flex items-center gap-10 pr-10 whitespace-nowrap"
+          aria-hidden={i > 0 ? 'true' : undefined}
+        >
+          {links.map((link) => (
+            <a href={link.href} class="text-inherit no-underline transition-opacity duration-200 hover:opacity-70">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<style>
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+</style>

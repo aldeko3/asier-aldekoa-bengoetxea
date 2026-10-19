@@ -1,0 +1,171 @@
+---
+import CurvedSeparator from "../components/CurvedSeparator.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import projects from "../data/projects.json";
+
+const projectRows = Array.from({ length: 3 }).flatMap((_, group) =>
+  projects.map((project) => ({ group, project }))
+);
+---
+
+<CurvedSeparator backgroundColor="bg-primary" pathColor="text-secondary" />
+
+<section id="projects" class="w-full bg-secondary px-6 py-24 text-primary">
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle
+      title="Proyectos Destacados"
+      color="text-primary"
+      number="02"
+      numberBackground="bg-secondary"
+    />
+  </div>
+
+  <div class="relative mt-16">
+    <ul
+      class="projects-carousel -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[3.75rem] py-4 scrollbar-none"
+      data-carousel
+    >
+      {projectRows.map(({ group, project }) => (
+        <li
+          class="project-card flex flex-col rounded-3xl border-[3px] border-primary/30 bg-primary/5 p-8"
+          aria-hidden={group > 0 ? "true" : undefined}
+        >
+          <span class="self-start rounded-xl bg-tertiary px-4 py-1 font-secondary-heavy text-sm uppercase text-secondary">
+            {project.type}
+          </span>
+
+          <h3 class="mt-6 font-secondary-heavy text-2xl uppercase leading-snug">
+            {project.name}
+          </h3>
+
+          <p class="mt-4 font-secondary-regular text-base uppercase leading-relaxed text-primary/80">
+            {project.description}
+          </p>
+
+          <ul class="mt-6 flex flex-wrap gap-3">
+            {project.tags.map((tag) => (
+              <li class="rounded-xl border-[2px] border-primary/40 px-3 py-1 font-secondary-regular text-sm uppercase">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-8 flex items-center justify-center gap-10">
+      <button
+        type="button"
+        data-carousel-prev
+        aria-label="Proyecto anterior"
+        class="transition duration-200 active:scale-90 motion-reduce:transition-none"
+      >
+        <img
+          src="/icons/MynauiChevronLeftCircle.svg"
+          alt=""
+          width="48"
+          height="48"
+        />
+      </button>
+      <button
+        type="button"
+        data-carousel-next
+        aria-label="Proyecto siguiente"
+        class="transition duration-200 active:scale-90 motion-reduce:transition-none"
+      >
+        <img
+          src="/icons/MynauiChevronRightCircle.svg"
+          alt=""
+          width="48"
+          height="48"
+        />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-card {
+    flex: 0 0 calc(100vw - 7.5rem);
+    scroll-snap-align: center;
+  }
+
+  @media (min-width: 64rem) {
+    .project-card {
+      flex-basis: 26rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('.project-card'));
+    const total = slides.length;
+    const count = total / 3;
+
+    if (count < 2) return;
+
+    const parent = carousel.parentElement;
+    if (!parent) return;
+
+    const prevBtn = parent.querySelector('[data-carousel-prev]');
+    const nextBtn = parent.querySelector('[data-carousel-next]');
+
+    let current = count;
+
+    const maxScroll = () => carousel.scrollWidth - carousel.clientWidth;
+
+    const centerOf = (index: number) => {
+      const slide = slides[index];
+      if (!slide) return 0;
+      return Math.max(
+        0,
+        Math.min(maxScroll(), slide.offsetLeft + slide.offsetWidth / 2 - carousel.clientWidth / 2)
+      );
+    };
+
+    const distance = Math.round(slides[1].offsetLeft - slides[0].offsetLeft);
+
+    const step = (direction: number) => {
+      const isLast = current >= count * 2 - 1;
+      const isFirst = current <= count;
+
+      if (direction > 0) {
+        if (isLast) {
+          carousel.scrollTo({ left: centerOf(current - count), behavior: 'auto' });
+          carousel.scrollBy({ left: distance, behavior: 'smooth' });
+          current = count;
+        } else {
+          carousel.scrollTo({ left: centerOf(current + 1), behavior: 'smooth' });
+          current += 1;
+        }
+      } else {
+        if (isFirst) {
+          carousel.scrollTo({ left: centerOf(current + count), behavior: 'auto' });
+          carousel.scrollBy({ left: -distance, behavior: 'smooth' });
+          current = count * 2 - 1;
+        } else {
+          carousel.scrollTo({ left: centerOf(current - 1), behavior: 'smooth' });
+          current -= 1;
+        }
+      }
+    };
+
+    prevBtn?.addEventListener('click', () => step(-1));
+    nextBtn?.addEventListener('click', () => step(1));
+
+    carousel.scrollTo({ left: centerOf(current), behavior: 'auto' });
+
+    let resizeTimer: number | undefined;
+    window.addEventListener('resize', () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        carousel.scrollTo({ left: centerOf(current), behavior: 'auto' });
+      }, 150);
+    });
+  });
+</script>

@@ -1,0 +1,111 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  text: string;
+}
+
+const { number, title, text } = Astro.props;
+---
+
+<li class="flip-card">
+  <button type="button" class="flip-inner" data-flip>
+    <span class="flip-face flip-front bg-primary text-secondary">
+      <span class="card-number font-secondary-heavy">{number}</span>
+      <strong class="font-secondary-heavy text-center text-lg uppercase leading-snug">
+        {title}
+      </strong>
+    </span>
+    <span class="flip-face flip-back border-[3px] border-primary text-primary">
+      <p class="font-secondary-heavy text-center text-md leading-relaxed uppercase">
+        {text}
+      </p>
+    </span>
+  </button>
+</li>
+
+<style>
+  .flip-card {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .flip-card {
+      max-width: none;
+    }
+  }
+
+  .flip-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 24rem;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+
+  .flip-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem;
+    overflow-y: auto;
+    border-radius: 1.5rem;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .flip-back {
+    transform: rotateY(180deg);
+  }
+
+  .card-number {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    border: 3px solid var(--color-secondary);
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    z-index: 1;
+  }
+
+  .flip-front::after {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 3px solid var(--color-secondary);
+    border-radius: 1rem;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-flip]').forEach((el) => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('is-flipped');
+    });
+  });
+</script>

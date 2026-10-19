@@ -1,0 +1,58 @@
+[
+  {
+    "company": "Teknei",
+    "role": "Desarrollador SharePoint / Microsoft 365",
+    "period": "Enero 2026 – Actual",
+    "location": "Bizkaia",
+    "bullets": [
+      {
+        "number": 1,
+        "title": "Creación, mantenimiento y evolución de portales",
+        "text": "creación desde cero, evolución continua, optimización y mantenimiento técnico de entornos corporativos en SharePoint Online."
+      },
+      {
+        "number": 2,
+        "title": "Desarrollo a medida con SPFx",
+        "text": "diseño y construcción desde cero de portales corporativos e interfaces avanzadas mediante componentes personalizados sobre SPFx (React y TypeScript)."
+      },
+      {
+        "number": 3,
+        "title": "Integración con Power Platform",
+        "text": "automatización de procesos con Power Apps y Power Automate."
+      },
+      {
+        "number": 4,
+        "title": "Administración y gobernanza",
+        "text": "gestión técnica de la plataforma, administración de estructuras de sitios, asignación de permisos y políticas de seguridad."
+      }
+    ]
+  },
+  {
+    "company": "CYC",
+    "role": "Desarrollador SharePoint / Microsoft 365",
+    "period": "Noviembre 2021 – Enero 2026",
+    "location": "Bizkaia",
+    "bullets": [
+      {
+        "number": 1,
+        "title": "Construcción de portales desde cero",
+        "text": "diseño e implementación completa de portales en SharePoint Online, incluyendo arquitectura de información, sitios, páginas, listas avanzadas y bibliotecas."
+      },
+      {
+        "number": 2,
+        "title": "Desarrollo a medida con SPFx",
+        "text": "diseño y construcción desde cero de portales corporativos e interfaces avanzadas mediante componentes personalizados sobre SPFx (React y TypeScript)."
+      },
+      {
+        "number": 3,
+        "title": "Aprovisionamiento y migraciones con PowerShell",
+        "text": "automatización de despliegues, aprovisionamiento masivo de sitios/estructuras y ejecución de migraciones de datos mediante scripts de PowerShell (PnP PowerShell / SharePoint Online Management Shell)."
+      },
+      {
+        "number": 4,
+        "title": "Administración y gobernanza",
+        "text": "definición e implementación de esquemas de permisos, estructuras de navegación y políticas de gobernanza en entornos Microsoft 365."
+      }
+    ]
+  }
+]

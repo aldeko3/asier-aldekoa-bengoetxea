@@ -1,0 +1,77 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+}
+
+const { name, icon } = Astro.props;
+---
+
+<li class="skill-card">
+  <span class="skill-card-inner">
+    <img
+      src={icon}
+      alt=""
+      width="40"
+      height="40"
+      class="skill-card-icon"
+    />
+    <span class="skill-card-name">{name}</span>
+  </span>
+</li>
+
+<style>
+  .skill-card {
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .skill-card {
+      max-width: none;
+    }
+  }
+
+  .skill-card-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    width: 100%;
+    min-height: 8rem;
+    padding: 1.75rem;
+    border-radius: 1.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    text-align: left;
+  }
+
+  .skill-card-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0.75rem;
+    border: 3px solid var(--color-primary);
+    border-radius: 1rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .skill-card-icon {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .skill-card-name {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-secondary-regular);
+    font-size: 1.125rem;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+</style>

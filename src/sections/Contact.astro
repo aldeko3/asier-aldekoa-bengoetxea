@@ -1,0 +1,133 @@
+---
+import CurvedSeparator from "../components/CurvedSeparator.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Button from "../components/Button.astro";
+
+const inputClasses =
+  "border-[3px] border-secondary rounded-xl bg-transparent px-4 py-3 font-secondary-regular text-lg uppercase text-secondary outline-none transition placeholder:uppercase placeholder:text-secondary/40 focus:border-secondary";
+---
+
+<CurvedSeparator backgroundColor="bg-primary" pathColor="text-secondary" />
+
+<section id="contact" class="w-full bg-secondary px-6 py-24 text-primary">
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle
+      title="Contacto"
+      color="text-primary"
+      number="06"
+      numberBackground="bg-secondary"
+    />
+
+    <div class="mt-16 grid gap-12 md:grid-cols-2 md:gap-10">
+      <div>
+        <h3 class="font-secondary-heavy text-2xl uppercase">
+          Información de contacto
+        </h3>
+
+        <div class="mt-8 flex flex-col gap-6">
+          <div class="border-l-[3px] border-primary pl-5">
+            <p class="font-secondary-regular text-sm uppercase tracking-widest text-primary/60">
+              Ubicación
+            </p>
+            <p class="mt-1 font-secondary-heavy text-lg uppercase">
+              Getxo, Bizkaia
+            </p>
+          </div>
+
+          <div class="border-l-[3px] border-primary pl-5">
+            <p class="font-secondary-regular text-sm uppercase tracking-widest text-primary/60">
+              Teléfono
+            </p>
+            <a
+              href="tel:+34688686014"
+              class="mt-1 block font-secondary-heavy text-lg uppercase transition hover:opacity-80"
+            >
+              +34 688 686 014
+            </a>
+          </div>
+
+          <div class="border-l-[3px] border-primary pl-5">
+            <p class="font-secondary-regular text-sm uppercase tracking-widest text-primary/60">
+              Email
+            </p>
+            <a
+              href="mailto:aaldekoaben@gmail.com"
+              class="mt-1 block font-secondary-heavy text-lg uppercase transition hover:opacity-80"
+            >
+              aaldekoaben@gmail.com
+            </a>
+          </div>
+
+          <div class="border-l-[3px] border-primary pl-5">
+            <p class="font-secondary-regular text-sm uppercase tracking-widest text-primary/60">
+              LinkedIn
+            </p>
+            <a
+              href="https://linkedin.com/in/asier-aldekoa-bengoetxea"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 block font-secondary-heavy text-lg uppercase transition hover:opacity-80"
+            >
+              /in/asier-aldekoa-bengoetxea
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <form
+        action="mailto:aaldekoaben@gmail.com"
+        method="post"
+        enctype="text/plain"
+        class="relative rounded-3xl bg-primary px-7 py-7 text-secondary"
+      >
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-3 rounded-2xl border-[3px] border-secondary"
+        ></span>
+
+        <div class="relative flex flex-col gap-6">
+          <label class="flex flex-col gap-2">
+            <span class="font-secondary-heavy text-sm uppercase tracking-widest">
+              Nombre
+            </span>
+            <input
+              type="text"
+              name="nombre"
+              required
+              placeholder="Tu nombre"
+              class={inputClasses}
+            />
+          </label>
+
+          <label class="flex flex-col gap-2">
+            <span class="font-secondary-heavy text-sm uppercase tracking-widest">
+              Email
+            </span>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Tu email"
+              class={inputClasses}
+            />
+          </label>
+
+          <label class="flex flex-col gap-2">
+            <span class="font-secondary-heavy text-sm uppercase tracking-widest">
+              Mensaje
+            </span>
+            <textarea
+              name="mensaje"
+              rows="5"
+              required
+              placeholder="Escribe tu mensaje"
+              class={`${inputClasses} resize-none`}
+            ></textarea>
+          </label>
+
+          <Button label="Enviar" type="submit" class="mt-2 self-start" />
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
